@@ -1,8 +1,10 @@
 public class LiczbyPierwsze {
     private int[] tab;
 
-    public LiczbyPierwsze(int n) {
+    public LiczbyPierwsze(int n) throws Exception {
+       if (n < 2)  throw new Exception("Niepoprawny zakres.");
         this.tab = new int[n];
+        dodajLiczbe(n);
     }
 
     public void wypiszTabliceLiczbPierwszych() {
@@ -28,5 +30,12 @@ public class LiczbyPierwsze {
             }
         }
         return true;
+    }
+
+    public int liczba(int m) throws Exception {
+        if (m > tab.length) {
+            throw new Exception(m + " - liczba spoza zakresu");
+        }
+        return tab[m];
     }
 }
